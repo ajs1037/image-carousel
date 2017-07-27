@@ -1,4 +1,4 @@
-// Image Carousel/Slider
+
 var carousel = (function() {
 
   // Constants
@@ -26,14 +26,14 @@ var carousel = (function() {
     startCarousel();
   };
 
-  // Get the next image's number, accounting for wrapping
-  var getNextImgNum = function() {
-    return ( (curImageNum + 1) > NUM_OF_IMAGES ) ? 1 : curImageNum + 1;
-  };
-
   // Get the previous image's number, accounting for wrapping
   var getPrevImgNum = function() {
     return ( (curImageNum - 1) < 1 ) ? NUM_OF_IMAGES : curImageNum - 1;
+  };
+
+  // Get the next image's number, accounting for wrapping
+  var getNextImgNum = function() {
+    return ( (curImageNum + 1) > NUM_OF_IMAGES ) ? 1 : curImageNum + 1;
   };
 
   // Switch Nav Dot
@@ -45,9 +45,9 @@ var carousel = (function() {
 
   // Move to the next Image
   var next = function() {
-    $allImages.animate( 
+    $allImages.animate(
       { 'left': '-=' + WIDTH + 'px' }, TRANSITION_TIME, function() {
-        // This callback function will run after the code below which 
+        // This callback function will run after the code below which
         // updates the curImageNum and nav dot.
         if ( curImageNum === 1 ) {
           $allImages.css( 'left', '-' + WIDTH + 'px' );
@@ -61,9 +61,9 @@ var carousel = (function() {
 
   // Move to the previous Image
   var previous = function() {
-    $allImages.animate( 
+    $allImages.animate(
       { 'left': '+=' + WIDTH + 'px' }, TRANSITION_TIME, function() {
-        // This callback function will run after the code below which 
+        // This callback function will run after the code below which
         // updates the curImageNum and nav dot.
         if ( curImageNum === NUM_OF_IMAGES ) {
           $allImages.css( 'left', '-' + ( WIDTH * NUM_OF_IMAGES ) + 'px' );
@@ -84,7 +84,7 @@ var carousel = (function() {
     curImageNum = imgNumber;
     updateNavDot();
 
-    $allImages.animate( { 'left': '-' + ( WIDTH * curImageNum ) + 'px' }, 
+    $allImages.animate( { 'left': '-' + ( WIDTH * curImageNum ) + 'px' },
                         TRANSITION_TIME );
   };
 
